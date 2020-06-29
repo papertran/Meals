@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { fetchMeals } from "../actions"
 
+import MealCard from './MealCard'
 class MealList extends Component {
 
 	componentDidMount() {
@@ -14,23 +15,21 @@ class MealList extends Component {
 	renderMealsList() {
 		return this.props.meals.map((meal) => {
 			return (
-				<div key={meal.Id}>
-					<img className="h-24 w-24 overflow-hidden"
-						src={meal.Image} alt={meal.Name} />
-					{meal.Name}
-					<a href="" className="block">Edit Meal</a>
-					<a href="" className="block">Delete Meal</a>
-				</div>
+				<MealCard meal={meal} key={meal.Id} />
 			)
+
 		})
 	}
+
+
 	render() {
-		console.log(this.props.meals)
+
 		return (
-			<div>
-				<h2>Meals</h2>
-				{this.renderMealsList()}
-			</div>
+			<>
+				<div className="grid grid-cols-4 gap-4 justify-between ml-20 mr-20 mt-10">
+					{this.renderMealsList()}
+				</div>
+			</>
 		)
 	}
 }
