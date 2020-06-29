@@ -4,14 +4,14 @@ import {
 	CREATE_MEAL,
 	EDIT_MEAL,
 	DELETE_MEAL
-} from './types';
+} from '../actions/types';
 import _ from "lodash";
 
 export default (state = {}, action) => {
 	switch (action.type) {
 		case FETCH_MEALS:
 			return { ...state, ..._.mapKeys(action.payload, "Id") }
-		case FETCH_Meal:
+		case FETCH_MEAL:
 			return { ...state, [action.payload.Id]: action.payload }
 		case CREATE_MEAL:
 			return { ...state, [action.payload.Id]: action.payload }
