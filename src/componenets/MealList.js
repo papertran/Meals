@@ -1,6 +1,8 @@
 import '../assets/main.css'
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import { Link } from "react-router-dom"
+
 import { fetchMeals } from "../actions"
 
 import MealCard from './MealCard'
@@ -29,6 +31,14 @@ class MealList extends Component {
 				<div className="grid grid-cols-4 gap-4 justify-between ml-20 mr-20 mt-10">
 					{this.renderMealsList()}
 				</div>
+				<Link to="/meal/create">
+					<div className="text-center w-32 m-auto mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+						Create Meal
+						</div>
+				</Link>
+
+
+
 			</>
 		)
 	}
