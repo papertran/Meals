@@ -17,7 +17,11 @@ class MealList extends Component {
 	renderMealsList() {
 		return this.props.meals.map((meal) => {
 			return (
-				<MealCard meal={meal} key={meal.Id} />
+				<div key={meal.Id}>
+					<Link to={`/meal/${meal.Id}`}>
+						<MealCard meal={meal} />
+					</Link>
+				</div>
 			)
 
 		})
@@ -31,7 +35,7 @@ class MealList extends Component {
 				<div className="grid grid-cols-4 gap-4 justify-between ml-20 mr-20 mt-10">
 					{this.renderMealsList()}
 				</div>
-				<Link to="/meal/create">
+				<Link to="/create">
 					<div className="text-center w-32 m-auto mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
 						Create Meal
 						</div>
